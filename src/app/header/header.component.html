@@ -1,0 +1,34 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">TejaSri</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" 
+      data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" *ngIf="this.auth.isLoggedIn()" routerLink="products" >products</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" *ngIf="this.auth.isAdmin()" routerLink="addproduct" >addproduct</a>
+          </li>
+          
+        </ul>
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" *ngIf="!this.auth.isLoggedIn()" aria-current="page" routerLink="register" >register</a>
+          </li>
+            <li class="nav-item">
+              <a class="nav-link active" *ngIf="!this.auth.isLoggedIn()" aria-current="page" routerLink="login" >login</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active cursor" *ngIf="this.auth.isLoggedIn()" aria-current="page" (click)="this.auth.logout()">Logout</a>
+
+            </li>
+            </ul>
+        
+      </div>
+    </div>
+  </nav>
+<router-outlet></router-outlet>
